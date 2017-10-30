@@ -1,18 +1,24 @@
 <?php
 /*
  * Plugin Name: FM Google Analytics
- * Plugin URI: http://www.freewebmentor.com/2016/09/google-analytics.html
+ * Plugin URI: https://www.freewebmentor.com/2016/09/google-analytics.html
  * Description: Add google analytics code in WordPress Blogs or websites.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Prem Tiwari
- * Author URI: http://freeewebmentor.com
+ * Author URI: https://freeewebmentor.com
  */
 
 if (!defined('ABSPATH')){ exit; }
-    
+
+//Add external css file
+add_action('admin_head', 'fm_style');
+function fm_style() {
+  echo '<link rel="stylesheet" href="'.plugins_url("fm-google-analytics/css/fm-style.css", dirname(__FILE__) ).'" type="text/css" media="all" />';
+}
+
 add_action('admin_menu', 'fmga_google_analytics_settings');
 
-function fmga_google_analytics_settings() {  
+function fmga_google_analytics_settings() {
     add_submenu_page( "options-general.php", 'Google Analytics settings', 'FM Google Analytics', 'manage_options', 'fmga-google-analytics', 'fmga_google_analytics_init');
 }
 
@@ -21,21 +27,22 @@ function fmga_google_analytics_init() {
     $submited = 0;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Submit'])) {
-        $fm_enabled = sanitize_text_field($_REQUEST['fm_enabled']);	
+        $fm_enabled = sanitize_text_field($_REQUEST['fm_enabled']);
         $fm_property_id = sanitize_text_field($_REQUEST['fm_property_id']);
         update_option('fm_enabled', $fm_enabled);
-        update_option('fm_property_id', $fm_property_id);                
+        update_option('fm_property_id', $fm_property_id);
         $submited = 1;
     }
 ?>
 
-    <div>   
+    <div>
         <h2 class="smsb_pluginheader"><?php _e("Google Analytics - Settings", "fm_google_analytics"); ?></h2>
+        <hr>
         <?php if (isset($submited) && $submited == 1) { ?>
-            <div id="setting-error-settings_updated" class="updated settings-error"> 
+            <div id="setting-error-settings_updated" class="updated settings-error">
                 <p><strong><?php _e("Your settings have been saved.", "fm_google_analytics"); ?></strong></p></div>
         <?php } ?>
-        <?php _e("<p>Enables google analytics code on all pages.</p>", "fm_google_analytics"); ?>
+        <?php _e("<p>It will enables the Google Analytic Tracking code on all frontend pages of your website.</p>", "fm_google_analytics"); ?>
 
 <form method="post">
             <table class="form-table">
@@ -48,7 +55,10 @@ function fmga_google_analytics_init() {
                             <fieldset>
                                 <legend class="screen-reader-text"><span>Enable/Disable</span></legend>
                                 <label for="fm_enabled">
-                                    <input type="checkbox" name="fm_enabled" id="fm_enabled" value="true" <?php echo (get_option('fm_enabled') == 'true' ? 'checked' : ''); ?>> Enable google analytics code</label><br>
+                                    <label class="switch">
+                                    <input type="checkbox" name="fm_enabled" id="fm_enabled" value="true" <?php echo (get_option('fm_enabled') == 'true' ? 'checked' : ''); ?>>
+                                    <span class="slider round"></span>
+                                  </label>
                             </fieldset>
                         </td>
                     </tr>
@@ -61,13 +71,12 @@ function fmga_google_analytics_init() {
                             </fieldset>
                         </td>
                     </tr>
-                    
                 </tbody></table>
             <p>&nbsp;</p>
             <p><input type="submit" name="Submit" class="button-primary" value="<?php _e("Save Settings", "fm_google_analytics"); ?>"></p>
-        </form>                    
+        </form>
     </div>
-    
+
 <?php }
 
 /**
@@ -96,6 +105,6 @@ echo $html;
 
 }
 
-if(get_option('fm_enabled')){ 
+if(get_option('fm_enabled')){
     add_action('wp_head', 'fmga_analytics_code');
 }
