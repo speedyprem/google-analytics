@@ -2,8 +2,8 @@
 Contributors: freewebmentor
 Tags: google analytics, analytics, analytics code, pages, all pages, posts, web property id, google analytics code
 Requires at least: 3.0
-Stable tag: trunk
-Tested up to: 4.8.2
+Stable tag: 1.0.2
+Tested up to: 4.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

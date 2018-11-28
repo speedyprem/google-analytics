@@ -1,3 +1,12 @@
+/*style plugin setting page*/
+.postbox{
+  padding: 15px !important;
+  width: 95%;
+}
+.notice, div.error, div.updated{
+  margin: 0px !important;
+  width: 93%;;
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
