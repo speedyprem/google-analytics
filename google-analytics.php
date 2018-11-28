@@ -3,7 +3,7 @@
  * Plugin Name: FM Google Analytics
  * Plugin URI: https://www.freewebmentor.com/2016/09/google-analytics.html
  * Description: Add google analytics code in WordPress Blogs or websites.
- * Version: 1.0.3
+ * Version: 1.0.2
  * Author: Prem Tiwari
  * Author URI: https://www.freeewebmentor.com
  */
@@ -34,9 +34,10 @@ function fmga_google_analytics_init() {
         $submited = 1;
     }
 ?>
-        <h2 class="smsb_pluginheader"><?php _e( "Google Analytics - Settings", "fm_google_analytics" ); ?></h2>
+        <h2 class="smsb_pluginheader"><?php _e("Google Analytics - Settings", "fm_google_analytics"); ?></h2>
 
-        <?php if ( isset( $submited ) && $submited == 1 ) { ?>
+        <?php if (isset($submited) && $submited == 1) { ?>
+
           <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible">
           <p><strong><?php _e("Your settings have been saved.", "fm_google_analytics"); ?></strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>
         <?php } ?>
@@ -48,7 +49,7 @@ function fmga_google_analytics_init() {
 								<p>
 									If you like this plugin, please
 									<a target="_blank" href="https://wordpress.org/support/plugin/fm-google-analytics/reviews/?rate=5#new-post" title="THANK YOU for supporting us!">
-										give it a 5-star rating&nbsp;»
+										give it a 5-star rating&nbsp;Â»
 									</a>
 								</p>
 							</div>
