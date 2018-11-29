@@ -18,7 +18,7 @@ It will add google analytics code on all pages of blogs or websites. FM Google A
 
 ## Get Help
 
-Do you need help installing Google Analytics, or do you have questions about Google Analytics? You can [search through our documentation here]https://www.freewebmentor.com/2016/09/google-analytics.html). If you don't find the answers you're looking for, you can [send us an email](https://www.freewebmentor.com/contact-us/)
+Do you need help installing Google Analytics, or do you have questions about Google Analytics? You can [search through our documentation here](https://www.freewebmentor.com/2016/09/google-analytics.html). If you don't find the answers you're looking for, you can [send us an email](https://www.freewebmentor.com/contact-us/)
 
 ## License
 
